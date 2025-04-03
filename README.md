@@ -1,62 +1,153 @@
-LLM-Detect AI Generated Text Detection
+Title: LLM-generated Text Detection: Enhancing Accuracy using DistilBERT & XLM-RoBERTa
 
-  This repository contains eight notebooks focused on detecting AI-generated text using DistilBERT embeddings and classification techniques.
+Description
 
-Notebooks
+  This project focuses on detecting machine-generated text (MGT) using deep learning-based embeddings from DistilBERT and XLM-RoBERTa models. The embeddings are classified using XGBoost to achieve high accuracy in distinguishing AI-generated and human-written text.
 
-  1. DistilBERT Embeddings Generation (LLM-Detect AI generated Text)
-  2. DistilBERT Embeddings Generation (Daigt-V4)
-  3. XLM-RoBERTa Embeddings Generation (LLM-Detect AI generated Text)
-  4. XLM-RoBERTa Embeddings Generation (Daigt-V4)
-  
-  These notebooks are responsible for generating embeddings using the DistilBERT and XLM-RoBERTa models from text data.
+Dataset Information
 
-Steps:
+  We used two datasets for training and evaluation:
 
-  Installation of Dependencies: Installs transformers and torch.
-  
-  Data Loading: Loads a  dataset (preprocessed_LLM_detect_AI_dataset.csv).
-  
-  Embedding Generation: Uses DistilBERTTokenizer and DistilBertModel to produce embeddings for each text entry.
+  LLM-Detect AI Generated Text Dataset (Kaggle)
 
-  Output: Saves embeddings for further processing.
-  
-Notebooks
-  
-  5. XGBoost on DistilBERT Embeddings (LLM-Detect Dataset)
-  6. XGBoost on DistilBERT Embeddings (Daigt-V4)
-  7. XGBoost on XLM-RoBERTa Embeddings (LLM-Detect Dataset)
-  8. XGBoost on XLM-RoBERTa Embeddings (Daigt-V4)
-  
-  These notebooks focuses on training a classification model using the embeddings generated in the previous notebook.
+  29,145 essays (17,508 human-written, 11,637 machine-generated)
 
-Steps:
+  Daigt-V4 Dataset (Kaggle)
 
-  Data Loading: Loads embeddings dataset (dataset2_distilbert_with_embeddings.csv).
+  73,573 essays (27,370 human-written, 46,203 machine-generated)
+
+  Both datasets contain text samples written by various LLMs, including GPT, LLaMA, Mistral, Claude, PaLM, and Cohere.
+
+Code Information
+
+  The code is organized into separate scripts for each step:
   
-  Data Preparation: Converts string embeddings into numerical arrays.
+  DistilBERT Embeddings Generation
   
-  Model Training: Uses XGBoost Classifier for training and evaluation.
+  DistilBERT Embeddings generation (Daigt-V4).ipynb
   
-  Performance Evaluation: Provides classification reports and accuracy metrics.
-  Note:This process is repeated for both datasets and both models.
+  DistilBERT Embeddings generation (LLM-Detect AI generated Text).ipynb
+  
+  XLM-RoBERTa Embeddings Generation
+  
+  XLM-RoBERTa Embeddings generation (Daigt-V4).ipynb
+  
+  XLM-RoBERTa Embeddings generation (LLM-Detect AI generated Text).ipynb
+
+Classification using XGBoost
+
+  xg-boost-on-distilbert-embeddings-daigtv4-dataset.ipynb
+  
+  xg-boost-on-distilbert-embeddings-llmdetectdataset.ipynb
+  
+  xg-boost-on-xlm-embeddings-daigt-v4-dataset.ipynb
+  
+  xg-boost-on-xlm-embeddings-llm-detect-dataset.ipynb
+
+Usage Instructions
+
+Step 1: Install Dependencies
+
+  Ensure you have the required dependencies installed:
+  
+  pip install transformers torch xgboost pandas numpy scikit-learn
+
+Step 2: Run Embedding Generation
+
+  Execute the embedding generation notebooks to extract text embeddings:
+  
+  jupyter notebook "DistilBERT Embeddings generation (Daigt-V4).ipynb"
+  
+  jupyter notebook "DistilBERT Embeddings generation (LLM-Detect AI generated Text).ipynb"
+  
+  jupyter notebook "XLM-RoBERTa Embeddings generation (Daigt-V4).ipynb"
+  
+  jupyter notebook "XLM-RoBERTa Embeddings generation (LLM-Detect AI generated Text).ipynb"
+  
+  Generated embeddings will be saved as CSV files on your Desktop.
+
+Step 3: Run Classification
+
+  Once embeddings are generated, run the classification model:
+  
+  jupyter notebook "xg-boost-on-distilbert-embeddings-daigtv4-dataset.ipynb"
+  
+  jupyter notebook "xg-boost-on-distilbert-embeddings-llmdetectdataset.ipynb"
+  
+  jupyter notebook "xg-boost-on-xlm-embeddings-daigt-v4-dataset.ipynb"
+  
+  jupyter notebook "xg-boost-on-xlm-embeddings-llm-detect-dataset.ipynb"
+
+  This will load the embeddings and train the XGBoost model for detecting AI-generated text.
+
+Methodology
+
+  Preprocessing
+
+    Stopword removal
+
+    Lemmatization
+    
+    Lowercasing
+    
+    Punctuation & whitespace removal
+    
+    Tokenization (using pre-trained tokenizers)
+
+  Embedding Extraction
+
+    DistilBERT and XLM-RoBERTa extract deep semantic features
+
+  Classification with XGBoost
+
+    Uses extracted embeddings to classify text
+
+  Evaluation Metrics
+
+    Accuracy, precision, recall, and F1-score
 
 Requirements
 
-  transformers
+  Python 3.8+
   
-  torch
+  PyTorch
   
-  pandas
+  Transformers (Hugging Face)
   
-  numpy
+  XGBoost
   
-  scikit-learn
+  Pandas & NumPy
+  
+  Scikit-learn
+  
+Citations 
 
-Usage
+  LLM-Detect AI Generated Text Dataset (Kaggle):
+  Kaggle Dataset:[ (https://www.kaggle.com/datasets/thedrcat/daigt-v4-train-dataset)](https://www.kaggle.com/datasets/thedrcat/daigt-v4-train-dataset)
+  
+  Daigt-V4 Dataset (Kaggle):
+  Kaggle Dataset:[ Daigt-V4 Dataset](https://www.kaggle.com/competitions/llm-detect-ai-generated-text/data)
 
-  Run the DistilBERT Embeddings Generation notebook to produce embeddings from your dataset.
+  DistilBERT:
+  Sanh, V., Debut, L., Chaumond, J., & Wolf, T. (2020). DistilBERT, a distilled version of BERT: Smaller, faster, cheaper and lighter.
+  URL: https://arxiv.org/abs/1910.01108
   
-  Save the embeddings as a CSV file.
+  XLM-RoBERTa:
+  Conneau, A., Khandelwal, K., Goyal, N., et al. (2020). Unsupervised Cross-lingual Representation Learning at Scale.
+  URL: https://arxiv.org/abs/1911.02116
   
-  Use the XGBoost on DistilBERT Embeddings notebook to train and evaluate a classifier on the generated embeddings.
+  XGBoost:
+  Chen, T., & Guestrin, C. (2016). XGBoost: A scalable tree boosting system. In Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining.
+  URL: https://arxiv.org/abs/1603.02754
+  
+  Transformers Library (Hugging Face):
+  Wolf, T., Debut, L., Sanh, V., et al. (2020). Transformers: State-of-the-art Natural Language Processing.
+  URL: https://arxiv.org/abs/1910.03771
+  
+  PyTorch:
+  Paszke, A., Gross, S., Massa, F., et al. (2019). PyTorch: An Imperative Style, High-Performance Deep Learning Library.
+  URL: https://arxiv.org/abs/1912.01703
+  
+  Scikit-learn:
+  Pedregosa, F., Varoquaux, G., Gramfort, A., et al. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825-2830.
+  URL: http://jmlr.csail.mit.edu/papers/volume12/pedregosa11a/pedregosa11a.pdf
