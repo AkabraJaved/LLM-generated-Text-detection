@@ -50,19 +50,19 @@ Step 1: Install Dependencies
 
   Ensure you have the required dependencies installed:
   
-  pip install transformers torch xgboost pandas numpy scikit-learn
+      pip install transformers torch xgboost pandas numpy scikit-learn
 
 Step 2: Run Embedding Generation
 
   Execute the embedding generation notebooks to extract text embeddings:
   
-  jupyter notebook "DistilBERT Embeddings generation (Daigt-V4).ipynb"
-  
-  jupyter notebook "DistilBERT Embeddings generation (LLM-Detect AI generated Text).ipynb"
-  
-  jupyter notebook "XLM-RoBERTa Embeddings generation (Daigt-V4).ipynb"
-  
-  jupyter notebook "XLM-RoBERTa Embeddings generation (LLM-Detect AI generated Text).ipynb"
+      jupyter notebook "DistilBERT Embeddings generation (Daigt-V4).ipynb"
+      
+      jupyter notebook "DistilBERT Embeddings generation (LLM-Detect AI generated Text).ipynb"
+      
+      jupyter notebook "XLM-RoBERTa Embeddings generation (Daigt-V4).ipynb"
+      
+      jupyter notebook "XLM-RoBERTa Embeddings generation (LLM-Detect AI generated Text).ipynb"
   
   Generated embeddings will be saved as CSV files on your Desktop.
 
@@ -70,13 +70,13 @@ Step 3: Run Classification
 
   Once embeddings are generated, run the classification model:
   
-  jupyter notebook "xg-boost-on-distilbert-embeddings-daigtv4-dataset.ipynb"
-  
-  jupyter notebook "xg-boost-on-distilbert-embeddings-llmdetectdataset.ipynb"
-  
-  jupyter notebook "xg-boost-on-xlm-embeddings-daigt-v4-dataset.ipynb"
-  
-  jupyter notebook "xg-boost-on-xlm-embeddings-llm-detect-dataset.ipynb"
+      jupyter notebook "xg-boost-on-distilbert-embeddings-daigtv4-dataset.ipynb"
+      
+      jupyter notebook "xg-boost-on-distilbert-embeddings-llmdetectdataset.ipynb"
+      
+      jupyter notebook "xg-boost-on-xlm-embeddings-daigt-v4-dataset.ipynb"
+      
+      jupyter notebook "xg-boost-on-xlm-embeddings-llm-detect-dataset.ipynb"
 
   This will load the embeddings and train the XGBoost model for detecting AI-generated text.
 
@@ -84,27 +84,27 @@ Methodology
 
   Preprocessing
 
-    Stopword removal
-
-    Lemmatization
+  Stopword removal
+            
+  Lemmatization
+                
+  Lowercasing
+                
+  Punctuation & whitespace removal
     
-    Lowercasing
-    
-    Punctuation & whitespace removal
-    
-    Tokenization (using pre-trained tokenizers)
+  Tokenization (using pre-trained tokenizers)
 
   Embedding Extraction
 
-    DistilBERT and XLM-RoBERTa extract deep semantic features
+  DistilBERT and XLM-RoBERTa extract deep semantic features
 
   Classification with XGBoost
 
-    Uses extracted embeddings to classify text
+  Uses extracted embeddings to classify text
 
   Evaluation Metrics
 
-    Accuracy, precision, recall, and F1-score
+  Accuracy, precision, recall, and F1-score
 
 Requirements
 
