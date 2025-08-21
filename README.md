@@ -6,15 +6,19 @@ Description
 
 Dataset Information
 
-  We used two datasets for training and evaluation:
+  We used three datasets for training and evaluation:
 
   LLM-Detect AI Generated Text Dataset (Kaggle)
 
-  29,145 essays (17,508 human-written, 11,637 machine-generated)
+  29,145 essays (14,508 human-written, 14,637 machine-generated)
 
   Daigt-V4 Dataset (Kaggle)
+  
+  UHAT dataset (Kaggle)
 
-  73,573 essays (27,370 human-written, 46,203 machine-generated)
+  3600 samples of text (1800 human-written, 1800 machine-generated)
+
+  73,573 essays (37,370 human-written, 36,203 machine-generated)
 
   Both datasets contain text samples written by various LLMs, including GPT, LLaMA, Mistral, Claude, PaLM, and Cohere.
 
@@ -34,6 +38,10 @@ Code Information
   
   XLM-RoBERTa Embeddings generation (LLM-Detect AI generated Text).ipynb
 
+  XLM-Roberta on urdu dataset
+
+  xlm-roberta-on-urdu-dataset.ipynb
+
 Classification using XGBoost
 
   xg-boost-on-distilbert-embeddings-daigtv4-dataset.ipynb
@@ -43,6 +51,14 @@ Classification using XGBoost
   xg-boost-on-xlm-embeddings-daigt-v4-dataset.ipynb
   
   xg-boost-on-xlm-embeddings-llm-detect-dataset.ipynb
+
+Comparison with Machine learning models
+
+  logistic-regression-on-xlm-roberta-embeddings.ipynb
+
+  mlp-on-xlmroberta-embeddings.ipynb
+
+  random-forest-on-xlmroberta-embeddings.ipynb
 
 Usage Instructions
 
@@ -127,6 +143,9 @@ Citations
   
   Daigt-V4 Dataset (Kaggle):
   Kaggle Dataset:[ Daigt-V4 Dataset](https://www.kaggle.com/competitions/llm-detect-ai-generated-text/data)
+
+  UHAT Dataset (Kaggle):
+  Kaggle Dataset:[https://www.kaggle.com/datasets/ammarshafiq/urdu-human-and-ai-text-dataset-uhat]
 
   DistilBERT:
   Sanh, V., Debut, L., Chaumond, J., & Wolf, T. (2020). DistilBERT, a distilled version of BERT: Smaller, faster, cheaper and lighter.
